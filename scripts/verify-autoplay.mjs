@@ -1,0 +1,46 @@
+import {chromium} from 'playwright-core';
+import assert from 'node:assert/strict';
+
+const browser=await chromium.launch({executablePath:process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE,headless:true});
+const page=await browser.newPage({viewport:{width:1440,height:1000},reducedMotion:'no-preference'});
+try{
+ const start=new Date('2026-10-20T12:00:00Z');
+ await page.clock.install({time:start});
+ await page.clock.pauseAt(new Date(start.getTime()+1000));
+ await page.goto('http://127.0.0.1:3000/');
+ const programs=page.getByRole('region',{name:'Nuestros programas',exact:true});
+ const testimonials=page.getByRole('region',{name:'Testimonios de estudiantes',exact:true});
+ await programs.getByRole('button',{name:'Pausar carrusel',exact:true}).waitFor();
+ assert.equal(await programs.locator('img').getAttribute('src'),'/images/english.png');
+ const fullWidth=await page.locator('.programs-orange').boundingBox();assert.equal(fullWidth.x,0);assert.equal(fullWidth.width,1440);
+ assert.equal(await page.locator('.programs-orange').evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(255, 100, 29)');
+ await page.clock.runFor(7999);
+ assert.match(await programs.innerText(),/Aprende inglés/);assert.match(await testimonials.innerText(),/Samantha Fornaris/);
+ await page.clock.runFor(1);
+ await programs.getByRole('heading',{name:'Aprende español',exact:true}).waitFor();
+ assert.equal(await programs.locator('img').getAttribute('src'),'/images/spanish.png');
+ assert.match(await testimonials.innerText(),/Ejemplo generado · no es un testimonio real/);
+ await page.clock.runFor(8000);
+ await programs.getByRole('heading',{name:'Preparación IELTS / TOEFL',exact:true}).waitFor();
+ assert.match(await testimonials.innerText(),/Ejemplo · IELTS \/ TOEFL/);
+ await page.clock.runFor(8000);
+ await programs.getByRole('heading',{name:'Aprende inglés',exact:true}).waitFor();
+ assert.match(await testimonials.innerText(),/Samantha Fornaris/);
+ await programs.hover();await page.clock.runFor(16000);
+ assert.match(await programs.innerText(),/Aprende inglés/);
+ await page.mouse.move(0,0);await page.clock.runFor(8000);
+ await programs.getByRole('heading',{name:'Aprende español',exact:true}).waitFor();
+ await programs.getByRole('button',{name:'Pausar carrusel',exact:true}).click();
+ await page.locator('h1').click();await page.clock.runFor(16000);
+ assert.match(await programs.innerText(),/Aprende español/);
+ await testimonials.getByRole('button',{name:'Ver Samantha Fornaris',exact:true}).click();
+ await testimonials.locator('summary').click();await page.locator('h1').click();
+ await page.clock.runFor(16000);assert.match(await testimonials.innerText(),/Samantha Fornaris/);
+ assert.match(await testimonials.locator('details[open]').innerText(),/le apasiona de verdad enseñar/);
+ await testimonials.locator('summary').click();await page.locator('h1').click();
+ await page.clock.runFor(8000);assert.match(await testimonials.innerText(),/Ejemplo generado/);
+ await page.emulateMedia({reducedMotion:'reduce'});await page.clock.runFor(0);
+ const before=await testimonials.locator('.carousel-progress strong').innerText();
+ await page.clock.runFor(16000);assert.equal(await testimonials.locator('.carousel-progress strong').innerText(),before);
+ console.log('PASS: exact 8-second autoplay, all slides and wraparound, image mapping, full-width orange, hover/manual/reading pauses, and reduced motion.');
+}finally{await browser.close()}

@@ -21,7 +21,9 @@ El sitio estático se genera en `out/`.
 ## Material pendiente
 
 - Incorporar el video de presentación. La imagen de Jaime proporcionada por el usuario está en `public/images/hero.png` y se utiliza en Inicio y Sobre Jaime.
-- Añadir futuros testimonios autorizados al carrusel. El testimonio de Samantha Fornaris fue proporcionado por el usuario y se conserva completo en inglés, con traducción al español y acceso al original.
+- Sustituir los dos ejemplos generados, que están identificados como ilustrativos, por testimonios autorizados. El testimonio de Samantha Fornaris fue proporcionado por el usuario y se conserva completo en inglés y español, con acceso al original y opción de desplegarlo.
+
+Los dos carruseles avanzan cada 8 segundos. Se pueden pausar y navegar manualmente; la reproducción se pausa al interactuar, al abrir el testimonio completo y cuando la pestaña está oculta. Se respeta la preferencia de movimiento reducido. Las imágenes de inglés y español fueron proporcionadas por el usuario.
 - Conectar el Student Learning Hub existente o desarrollar su autenticación y contenidos.
 - Confirmar tarifas y condiciones vigentes con Jaime antes de un lanzamiento público.
 
