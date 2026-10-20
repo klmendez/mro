@@ -11,7 +11,7 @@ try{
  assert.equal(await programs.locator('img').getAttribute('src'),'/images/english.png');
  assert.equal(await page.locator('.programs-orange').count(),0);
  assert.equal(await page.locator('.programs-section').evaluate(e=>getComputedStyle(e).backgroundColor),'rgba(0, 0, 0, 0)');
- assert.equal(await testimonials.getByRole('button',{name:'Siguiente',exact:true}).isDisabled(),true);
+ assert.equal(await testimonials.locator('.carousel-arrows button').last().isDisabled(),true);
  assert.equal(await testimonials.getByRole('button',{name:'Pausar carrusel',exact:true}).count(),0);
  assert.equal(await page.locator('.sample-label,.sample-testimonial').count(),0);
  await page.clock.runFor(7999);assert.match(await programs.innerText(),/Aprende inglés/);

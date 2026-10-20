@@ -1,6 +1,8 @@
 # Mr. O School
 
-Sitio multipágina con Next.js App Router, React, TypeScript y Tailwind CSS. Diseño adaptable con tres variantes anaranjadas, programas por pestañas, precios COP/USD y contacto por WhatsApp.
+Sitio multipágina con Next.js App Router, React, TypeScript y Tailwind CSS. Diseño adaptable con tres variantes anaranjadas, programas por secciones, precios COP/USD y contacto por WhatsApp.
+
+La página de Programas comienza con la dinámica de clase y continúa con secciones de inglés, español e IELTS/TOEFL, siempre visibles. Los enlaces internos llevan directamente a cada sección. El contenido bilingüe se encuentra en `app/programs-content.tsx`; `app/programs.css` también compacta los carruseles de Inicio.
 
 El selector ES/EN del navbar traduce todas las páginas y conserva la preferencia localmente. Las traducciones se editan en `app/translations.json`; `app/language.tsx` gestiona el contexto, el idioma del documento y el contacto. Los precios mantienen su selector de moneda independiente. El logo proporcionado se usa en navbar y footer. La burbuja de WhatsApp está disponible en todas las páginas.
 

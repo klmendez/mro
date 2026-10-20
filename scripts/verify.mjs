@@ -14,10 +14,13 @@ try {
   assert.equal(await page.locator('h1').count(),1);
  }
  await page.goto('http://127.0.0.1:3000/programas/#espanol');
- await page.getByRole('tab',{name:'Ñ Español'}).click();
- await page.getByRole('heading',{name:'Español: Conecta de verdad.'}).waitFor();
- await page.getByRole('tab',{name:'↗ IELTS / TOEFL'}).click();
- await page.getByRole('heading',{name:'IELTS / TOEFL: Ve por tu siguiente meta.'}).waitFor();
+ assert.equal(await page.getByRole('tablist').count(),0);
+ assert.equal(await page.locator('.language-section').count(),3);
+ await page.getByRole('heading',{name:'Español. Conecta de verdad.',exact:true}).waitFor();
+ await page.getByRole('heading',{name:'IELTS / TOEFL. Ve por tu siguiente meta.',exact:true}).waitFor();
+ assert.ok(await page.evaluate(()=>!!(document.querySelector('.lesson-opening').compareDocumentPosition(document.querySelector('#ingles'))&Node.DOCUMENT_POSITION_FOLLOWING)));
+ await page.locator('.program-jump-links').getByRole('link',{name:'IELTS / TOEFL',exact:false}).click();
+ assert.equal(new URL(page.url()).hash,'#examenes');
  await page.goto('http://127.0.0.1:3000/precios/');
  await page.getByRole('button',{name:'Internacional · USD'}).click();
  assert.match(await page.locator('.price-grid').innerText(),/US\$36/);
@@ -31,7 +34,7 @@ try {
   await page.screenshot({path:'artifacts/'+(route.split('/')[1]||'inicio')+'-mobile.png',fullPage:true});
  }
  await page.getByRole('button',{name:'Abrir menú'}).click();
- await page.getByRole('navigation').getByRole('link',{name:'Programas'}).click();
+ await page.locator('header').getByRole('navigation').getByRole('link',{name:'Programas'}).click();
  await page.waitForURL('**/programas/');
  await page.goto('http://127.0.0.1:3000/');
  const programsCarousel=page.getByRole('region',{name:'Nuestros programas',exact:true});
@@ -59,7 +62,7 @@ try {
  const testimonials=page.getByRole('region',{name:'Testimonios de estudiantes',exact:true});
  assert.match(await testimonials.innerText(),/Samantha\s*Fornaris/);
  assert.match(await testimonials.innerText(),/Hace cuatro años/);
- assert.equal(await testimonials.getByRole('button',{name:'Siguiente',exact:true}).isDisabled(),true);
+ assert.equal(await testimonials.locator('.carousel-arrows button').last().isDisabled(),true);
  await testimonials.locator('summary').filter({hasText:'Leer testimonio completo'}).click();
  await testimonials.getByRole('button',{name:'Leer original en inglés',exact:false}).click();
  assert.match(await testimonials.locator('blockquote').innerText(),/Four years ago, I could barely put a sentence together in Spanish/);
@@ -95,17 +98,20 @@ try {
  assert.equal(await page.locator('header .brand-logo').getAttribute('src'),'/images/logo.png');
  assert.equal(await page.locator('footer .brand-logo').getAttribute('src'),'/images/logo.png');
  await page.getByRole('button',{name:'Open menu'}).click();
- await page.getByRole('navigation').getByRole('link',{name:'Programs',exact:true}).click();
+ await page.locator('header').getByRole('navigation').getByRole('link',{name:'Programs',exact:true}).click();
  await page.waitForURL('**/programas/');
- await page.getByRole('heading',{level:1}).filter({hasText:'Your goal.'}).waitFor();
- await page.getByRole('tab',{name:'Ñ Spanish'}).click();
- await page.getByRole('heading',{name:'Spanish: Make real connections.'}).waitFor();
+ await page.getByRole('heading',{level:1}).filter({hasText:'Learning means'}).waitFor();
+ await page.getByRole('heading',{name:'Spanish. Make real connections.',exact:true}).waitFor();
+ await page.locator('.program-jump-links').getByRole('link',{name:'Spanish',exact:false}).click();
+ assert.equal(new URL(page.url()).hash,'#espanol');
+ assert.equal(await page.locator('#ingles').isVisible(),true);
+ assert.equal(await page.locator('#examenes').isVisible(),true);
  await page.getByRole('button',{name:'Español',exact:true}).click();
- await page.getByRole('heading',{name:'Español: Conecta de verdad.'}).waitFor();
+ await page.getByRole('heading',{name:'Español. Conecta de verdad.',exact:true}).waitFor();
  await page.getByRole('button',{name:'English',exact:true}).click();
  await page.reload();
- await page.getByRole('heading',{level:1}).filter({hasText:'Your goal.'}).waitFor();
- const englishRoutes=[['/','Learn'],['/programas/','Your goal.'],['/sobre-jaime/','Teaching languages.'],['/precios/','Your learning.'],['/plataforma/','Your learning']];
+ await page.getByRole('heading',{level:1}).filter({hasText:'Learning means'}).waitFor();
+ const englishRoutes=[['/','Learn'],['/programas/','Learning means'],['/sobre-jaime/','Teaching languages.'],['/precios/','Your learning.'],['/plataforma/','Your learning']];
  for(const width of [320,390,768,1440]){
   await page.setViewportSize({width,height:900});
   for(const [route,heading] of englishRoutes){
