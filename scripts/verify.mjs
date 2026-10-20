@@ -34,6 +34,12 @@ try {
  await page.getByRole('navigation').getByRole('link',{name:'Programas'}).click();
  await page.waitForURL('**/programas/');
  await page.goto('http://127.0.0.1:3000/');
+ await page.getByRole('button',{name:'Precios internacionales',exact:true}).click();
+ assert.match(await page.locator('.home-price-grid').innerText(),/US\$135/);
+ await page.getByRole('button',{name:'Precios en Colombia',exact:true}).click();
+ assert.match(await page.locator('.home-price-grid').innerText(),/360.000 COP/);
+ assert.ok(await page.locator('h1').innerText().then(t=>t.includes('Aprende')&&t.includes('Encuentra')));
+ assert.equal(await page.locator('img').evaluateAll(imgs=>imgs.filter(i=>!i.complete||i.naturalWidth===0).length),0);
  await page.getByRole('button',{name:'Conoce a Mr. O'}).click();
  await page.getByRole('dialog').waitFor();await page.keyboard.press('Escape');
  assert.equal(await page.getByRole('dialog').count(),0);assert.deepEqual(errors,[]);

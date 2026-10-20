@@ -18,10 +18,10 @@ El sitio estático se genera en `out/`.
 
 ## Material pendiente
 
-- Incorporar video y fotografía auténtica de Jaime. El monograma es una composición gráfica, no su retrato.
+- Incorporar el video de presentación. La imagen de Jaime proporcionada por el usuario está en `public/images/hero.png` y se utiliza en Inicio y Sobre Jaime.
 - Incorporar testimonios autorizados; no se han inventado reseñas.
 - Conectar el Student Learning Hub existente o desarrollar su autenticación y contenidos.
 - Agregar versiones completas en inglés. Esta primera versión está en español.
 - Confirmar tarifas y condiciones vigentes con Jaime antes de un lanzamiento público.
 
-La fotografía de portada es ilustrativa y no representa a Jaime ni a estudiantes de la escuela. Los archivos están en `public/images`.
+Las fotografías de los programas son ilustrativas. Los archivos están en `public/images`. La dirección visual de todas las páginas sigue la referencia proporcionada: Poppins local, botones redondeados, blanco cálido, anaranjado y secciones compactas.
