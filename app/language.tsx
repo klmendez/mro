@@ -10,15 +10,13 @@ export function translate(text:string,locale:Locale){
  const value=messages[key];
  return value===undefined?text:text.replace(key,value);
 }
-const descriptions={es:'Clases personalizadas de inglés y español con Jaime Ochoa. Preparación IELTS y TOEFL. En línea en todo el mundo.',en:'Personalized English and Spanish lessons with Jaime Ochoa. IELTS and TOEFL preparation. Online worldwide.'};
+
 const LanguageContext=createContext<{locale:Locale;setLocale:(locale:Locale)=>void;t:(text:string)=>string;whatsapp:string}|null>(null);
 export function LanguageProvider({children}:{children:React.ReactNode}){
  const [locale,setLocale]=useState<Locale>('es');
  useEffect(()=>{try{if(localStorage.getItem('mro-language')==='en')setLocale('en')}catch{}},[]);
  useEffect(()=>{
   document.documentElement.lang=locale;
-  document.title=locale==='en'?'Mr. O School — Learn the language. Find your voice.':'Mr. O School — Aprende el idioma. Encuentra tu voz.';
-  document.querySelector('meta[name="description"]')?.setAttribute('content',descriptions[locale]);
  },[locale]);
  const changeLocale=useCallback((next:Locale)=>{setLocale(next);try{localStorage.setItem('mro-language',next)}catch{}},[]);
  const value=useMemo(()=>({locale,setLocale:changeLocale,t:(text:string)=>translate(text,locale),whatsapp:'https://api.whatsapp.com/send?phone=573178948694&text='+encodeURIComponent(locale==='en'?"Hi Jaime, I'd like to learn more about lessons at Mr. O School.":'Hola Jaime, quiero conocer las clases de Mr. O School.')}),[locale,changeLocale]);

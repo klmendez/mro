@@ -1,2 +1,4 @@
+import type {Metadata} from 'next';
+export const metadata:Metadata={"title": "Plataforma estudiantil | Mr. O School", "description": "Materiales y actividades para estudiantes de inglés y español de Mr. O School. Solicita tu acceso privado a la plataforma estudiantil.", "openGraph": {"title": "Plataforma estudiantil | Mr. O School", "description": "Materiales y actividades para estudiantes de inglés y español de Mr. O School. Solicita tu acceso privado a la plataforma estudiantil.", "type": "website", "locale": "es_CO", "siteName": "Mr. O School"}, "twitter": {"card": "summary", "title": "Plataforma estudiantil | Mr. O School", "description": "Materiales y actividades para estudiantes de inglés y español de Mr. O School. Solicita tu acceso privado a la plataforma estudiantil."}};
 import School from '../school';
 export default function Page(){ return <School page="plataforma"/> }

@@ -1,2 +1,4 @@
+import type {Metadata} from 'next';
+export const metadata:Metadata={"title": "Jaime Ochoa | Profesor de inglés y español | Mr. O School", "description": "Conoce a Jaime Ochoa, educador y ecólogo con más de 30 años de experiencia enseñando idiomas y traductor TED. Clases de inglés y español online.", "openGraph": {"title": "Jaime Ochoa | Profesor de inglés y español | Mr. O School", "description": "Conoce a Jaime Ochoa, educador y ecólogo con más de 30 años de experiencia enseñando idiomas y traductor TED. Clases de inglés y español online.", "type": "website", "locale": "es_CO", "siteName": "Mr. O School"}, "twitter": {"card": "summary", "title": "Jaime Ochoa | Profesor de inglés y español | Mr. O School", "description": "Conoce a Jaime Ochoa, educador y ecólogo con más de 30 años de experiencia enseñando idiomas y traductor TED. Clases de inglés y español online."}};
 import School from '../school';
 export default function Page(){ return <School page="jaime"/> }

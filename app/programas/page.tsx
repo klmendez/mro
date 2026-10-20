@@ -1,2 +1,4 @@
+import type {Metadata} from 'next';
+export const metadata:Metadata={"title": "Aprende inglés y español | IELTS y TOEFL | Mr. O School", "description": "Conoce nuestros programas de inglés y español: clases individuales, conversación y preparación IELTS y TOEFL adaptadas a tus objetivos.", "openGraph": {"title": "Aprende inglés y español | IELTS y TOEFL | Mr. O School", "description": "Conoce nuestros programas de inglés y español: clases individuales, conversación y preparación IELTS y TOEFL adaptadas a tus objetivos.", "type": "website", "locale": "es_CO", "siteName": "Mr. O School"}, "twitter": {"card": "summary", "title": "Aprende inglés y español | IELTS y TOEFL | Mr. O School", "description": "Conoce nuestros programas de inglés y español: clases individuales, conversación y preparación IELTS y TOEFL adaptadas a tus objetivos."}};
 import School from '../school';
 export default function Page(){ return <School page="programas"/> }

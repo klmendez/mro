@@ -1,2 +1,4 @@
+import type {Metadata} from 'next';
+export const metadata:Metadata={"title": "Precios de clases de inglés y español | Mr. O School", "description": "Consulta precios de clases particulares de inglés y español, planes semanales y paquetes prepagados en COP y USD. Reserva tu horario con Jaime Ochoa.", "openGraph": {"title": "Precios de clases de inglés y español | Mr. O School", "description": "Consulta precios de clases particulares de inglés y español, planes semanales y paquetes prepagados en COP y USD. Reserva tu horario con Jaime Ochoa.", "type": "website", "locale": "es_CO", "siteName": "Mr. O School"}, "twitter": {"card": "summary", "title": "Precios de clases de inglés y español | Mr. O School", "description": "Consulta precios de clases particulares de inglés y español, planes semanales y paquetes prepagados en COP y USD. Reserva tu horario con Jaime Ochoa."}};
 import School from '../school';
 export default function Page(){ return <School page="precios"/> }
