@@ -1,0 +1,95 @@
+/* Section openings use a centered composition; reading columns keep their alignment. */
+.section-heading{flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:18px}
+.section-heading>div{width:100%}
+.section-heading h2{margin-inline:auto}
+.section-heading>.action-button{margin-top:0}
+.reference-prices .section-heading{margin-bottom:30px}
+.reference-prices .home-currency{align-self:center}
+.centered-testimonials .section-heading{text-align:center}
+.lesson-opening>.eyebrow,.lesson-opening>h1,.lesson-opening>.lesson-intro{text-align:center;margin-inline:auto}
+.lesson-opening>h1{max-width:850px;margin-top:15px;margin-bottom:20px}
+.lesson-opening>.lesson-intro{max-width:720px}
+.lesson-opening .lesson-sequence{margin-top:34px}
+.programs-page .language-section-header{display:grid;grid-template-columns:48px minmax(0,1fr) 48px;align-items:center}
+.language-section-header>div{text-align:center}
+.language-section-header h2{max-width:none;margin-inline:auto}
+.language-section-number{align-self:center;padding:0}
+.language-section-mark{justify-self:end;margin:0}
+.inner-page>.eyebrow,.inner-page>h1,.inner-page>.intro{text-align:center;margin-inline:auto}
+.pricing-column h2{text-align:center;display:flex;align-items:flex-start;justify-content:center}
+.pricing-column .pricing-plan-icon{align-self:center}
+.pricing-benefits{grid-template-columns:1fr;gap:30px}
+.pricing-benefits-heading{text-align:center;max-width:740px;margin-inline:auto}
+.pricing-benefits-heading>p{max-width:650px;margin-inline:auto}
+.pricing-benefit-list{grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
+.pricing-benefit{flex-direction:column;align-items:center;text-align:center}
+.pricing-payment-section>div{text-align:center}
+.pricing-payment-section .payment-methods{margin-top:30px}
+.pricing-faq-heading{flex-direction:column;align-items:center;text-align:center;gap:18px;margin-bottom:24px}
+.pricing-faq-heading h2{text-align:center}
+.pricing-booking>div{text-align:center}
+.pricing-booking>div>p{margin-inline:auto}
+.pricing-booking .pricing-phone{text-align:center}
+@media(max-width:900px){.pricing-benefit-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}.pricing-benefits{gap:28px}}
+@media(max-width:650px){.section-heading{gap:16px}.section-heading>.action-button{margin-top:0}.pricing-benefit-list{grid-template-columns:1fr;gap:26px}.pricing-benefit{max-width:360px;margin-inline:auto}.pricing-reference-copy{text-align:center}.pricing-reference-copy h1,.pricing-reference-copy>p{margin-inline:auto}.pricing-faq-heading{align-items:center}.programs-page .language-section-header{grid-template-columns:25px minmax(0,1fr) 30px;gap:8px}.language-section-header h2{font-size:25px}.language-section-header .eyebrow{font-size:8px}.language-section-mark{font-size:26px}.lesson-opening>h1{font-size:34px}.reference-hero-copy{text-align:center;margin-inline:auto}.reference-hero-copy>p{margin-inline:auto}.reference-hero-copy .hero-actions{justify-content:center}}
+/* Final alignment pass across shared and page-specific sections. */
+.section-heading>.home-currency{width:auto;max-width:100%;justify-content:center;align-self:center;flex-wrap:wrap}
+.programs-page .program-jump-links{justify-content:center}
+.program-jump-links>span{flex-basis:100%;text-align:center;margin-right:0}
+.language-section-main{padding-left:0}
+.language-section-depth,.language-section-end{margin-left:0}
+.center-testimonial{text-align:center}
+.center-testimonial figcaption{justify-content:center;text-align:left}
+.center-quote-symbol{text-align:center}
+.pricing-column-price{text-align:center}
+.pricing-column-price p{text-align:center}
+.pricing-column>.action-button{align-self:center}
+.price-footnote{align-items:center}
+@media(min-width:901px){.pricing-column h2{height:76px;min-height:76px}.pricing-column-price{min-height:150px}}
+@media(max-width:780px){.footer-main{flex-direction:column;align-items:center;text-align:center}.footer-links{justify-content:center;width:100%}.footer-main .brand{justify-content:center}.about-layout>div:last-child>h2,.about-layout>div:last-child>h3{text-align:center}.about-layout>div:last-child>.button{display:flex;width:fit-content;max-width:100%;margin-inline:auto}.reference-teacher-copy{text-align:center}.reference-teacher-copy>p{margin-inline:auto}.teacher-notes{justify-content:center}.about-bottom{text-align:center}.about-bottom .button{justify-self:center}.closing>.wrap{flex-direction:column;text-align:center;gap:23px}.closing h2{margin-inline:auto;max-width:620px}.closing .button{align-self:center;max-width:100%}.footer-bottom{padding-right:0;justify-content:center;flex-wrap:wrap;text-align:center;gap:15px}.theme-picker{justify-content:center}}
+@media(max-width:520px){.price-footnote{flex-direction:column;text-align:center;gap:16px}.price-footnote p{max-width:100%}.price-footnote .action-button{max-width:100%}.reference-benefits .benefit:last-child{text-align:left}.reference-benefits .benefit:last-child h3,.reference-benefits .benefit:last-child p{margin-left:0}.reference-benefits .benefit:last-child svg{margin:0}.center-testimonial figcaption{text-align:center;flex-direction:column;gap:9px}.testimonial-read-more.action-button{margin-top:10px}.center-testimonial-carousel .center-stage{height:330px}.about-art.portrait>small{max-width:calc(100% - 24px);font-size:7px;white-space:normal;text-align:center}.footer-bottom>span{flex-basis:100%}}
+@media(max-width:360px){.hero-actions{flex-wrap:wrap}.reference-hero .hero-actions .button{max-width:100%}.pricing-comparison .currency{justify-content:center}.pricing-comparison .currency button{padding-inline:10px}.pricing-column{padding-inline:10px}.pricing-column-price strong{font-size:22px}.pricing-column .action-button{padding-inline:10px;font-size:11px}}
+.programs-showcase .section-heading h2{font-size:clamp(32px,3.4vw,44px);line-height:1.15;font-weight:600;margin:0}
+.programs-section-subtitle{font-size:15px;line-height:1.6;margin-top:12px;color:var(--muted)}
+.programs-showcase .section-heading{gap:20px;margin-bottom:30px}
+.button,.action-button{justify-content:center}
+@media(max-width:520px){.programs-showcase .section-heading h2{font-size:31px}.programs-section-subtitle{font-size:13px;margin-top:9px}.programs-showcase .section-heading{gap:16px;margin-bottom:24px}}
+.program-explorer{display:grid;grid-template-columns:1fr 1.1fr;gap:55px;align-items:stretch;margin-top:32px;margin-bottom:24px}
+.program-accordion{min-width:0;align-self:center}
+.program-accordion-item{border-top:1px solid var(--line)}
+.program-accordion-item:last-child{border-bottom:1px solid var(--line)}
+.program-accordion-item h3{margin:0}
+.program-accordion-item h3 button{display:flex;align-items:center;gap:16px;text-align:left;width:100%;padding:23px 0;background:none;color:var(--ink);font-size:22px;font-weight:500;line-height:1.35;letter-spacing:-.035em}
+.program-list-number{font-size:11px;font-weight:400;letter-spacing:0;color:var(--muted);flex-shrink:0}
+.program-list-toggle{margin-left:auto;color:var(--accent-dark);font-size:23px;font-weight:400;flex-shrink:0}
+.program-accordion-item.is-open h3 button{color:var(--accent-dark)}
+.program-accordion-panel{padding:0 0 25px 32px;animation:program-panel-reveal .3s ease-out}
+.program-accordion-panel[hidden]{display:none}
+.program-accordion-panel .eyebrow{font-size:10px;color:var(--muted)}
+.program-accordion-panel p{font-size:13px;line-height:1.85;margin:10px 0 18px;max-width:420px}
+.program-accordion-panel .action-button{font-size:11px}
+.program-explorer-visual{position:relative;min-height:395px;overflow:hidden}
+.program-explorer-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease;pointer-events:none}
+.program-explorer-visual img.is-active{opacity:1}
+@keyframes program-panel-reveal{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:900px){.program-explorer{gap:30px;grid-template-columns:1fr 1fr}.program-accordion-item h3 button{font-size:19px;padding:20px 0;gap:12px}.program-accordion-panel{padding-left:28px}.program-explorer-visual{min-height:375px}}
+@media(max-width:650px){.program-explorer{grid-template-columns:1fr;gap:24px;margin-top:23px}.program-accordion-item h3 button{font-size:20px;padding:20px 0}.program-accordion-panel p{font-size:13px}.program-explorer-visual{min-height:0;height:245px}.program-accordion-panel{padding-bottom:22px}.programs-showcase .section-heading{margin-bottom:0}}
+@media(prefers-reduced-motion:reduce){.program-accordion-panel{animation:none}.program-explorer-visual img{transition:none}}
+.program-explorer{grid-template-columns:.9fr 1.1fr;gap:65px;margin-top:15px;align-items:start}
+.program-explorer-navigation{min-width:0}
+.program-explorer-navigation .section-heading{text-align:left;align-items:flex-start;margin-bottom:30px}
+.program-explorer-navigation .section-heading h2{margin-left:0;max-width:390px}
+.program-explorer-navigation .programs-section-subtitle{max-width:350px}
+.program-explorer-navigation .program-accordion{align-self:auto}
+.program-explorer-details{min-width:0}
+.program-detail-panel[hidden]{display:none}
+.program-detail-panel{animation:program-panel-reveal .3s ease-out}
+.program-detail-copy{min-height:173px;padding-bottom:24px}
+.program-detail-copy .eyebrow{color:var(--accent-dark);font-size:10px}
+.program-detail-copy p{font-size:14px;line-height:1.8;margin:12px 0 18px;max-width:530px}
+.program-detail-copy .action-button{font-size:11px}
+.program-detail-image{height:305px;overflow:hidden}
+.program-detail-image img{height:100%;width:100%;object-fit:cover}
+@media(max-width:900px){.program-explorer{gap:32px;grid-template-columns:1fr 1fr}.program-explorer-navigation .section-heading h2{font-size:34px}.program-detail-copy{min-height:205px}.program-detail-image{height:280px}}
+@media(max-width:650px){.program-explorer{grid-template-columns:1fr;gap:27px;margin-top:20px}.program-explorer-navigation .section-heading{text-align:left;gap:0;margin-bottom:25px}.program-explorer-navigation .section-heading h2{font-size:31px}.program-detail-copy{min-height:0;padding-bottom:22px}.program-detail-copy p{font-size:13px}.program-detail-image{height:245px}}
+@media(prefers-reduced-motion:reduce){.program-detail-panel{animation:none}}

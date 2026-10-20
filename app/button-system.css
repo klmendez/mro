@@ -1,0 +1,40 @@
+/* Two shared button treatments: filled orange and white with an orange outline. */
+:root{--button-orange:#f4510b;--button-outline:#ed4b08;--button-white:#fffdf9;--button-edge:#ff9b62}
+body :is(.button,.action-button,.small-cta,.carousel-arrows button,.carousel-toggle,.language-switcher button,.currency button,.home-currency button,.program-accordion-item h3 button,.menu-toggle,.modal-close,.testimonial-dialog-close){
+ border:2px solid var(--button-outline)!important;
+ border-radius:999px!important;
+ background:var(--button-white)!important;
+ color:var(--button-outline)!important;
+ box-shadow:none!important;
+ text-decoration:none;
+ transition:filter .2s,box-shadow .2s;
+}
+body :is(.button:not(.outline):not(.light),.small-cta,.currency button[aria-pressed=true],.home-currency button[aria-pressed=true],.language-switcher button[aria-pressed=true]){
+ background:var(--button-orange)!important;
+ color:#fff!important;
+ border-color:var(--button-edge)!important;
+ box-shadow:inset 0 0 0 1px #ffffff28!important;
+}
+body :is(.button,.action-button,.small-cta){align-items:center;justify-content:center;min-height:44px;padding:10px 22px;font-size:12px;font-weight:500;line-height:1.5;text-align:center}
+body :is(.button,.action-button,.small-cta):hover{filter:brightness(.96);transform:none}
+body :is(.button,.action-button,.small-cta):focus-visible{outline:3px solid var(--button-edge);outline-offset:4px}
+body .programs-section .program-detail-copy .action-button{color:var(--button-outline)!important}
+body .program-accordion-item{background:transparent!important}
+body .program-accordion-item h3 button{padding:17px 21px;box-shadow:none!important}
+body .program-accordion-item :is(.program-list-number,.program-list-toggle){color:var(--button-outline)!important}
+body .language-switcher button{width:30px;min-width:30px;min-height:30px;height:30px;padding:0;font-size:10px}
+body .language-switcher button:after,body .home-currency button:after{content:none!important}
+body .language-switcher{gap:5px}
+body :is(.currency,.home-currency){border:0;background:transparent;gap:8px;padding:0;justify-content:center}
+body :is(.currency button,.home-currency button){min-height:40px;padding:9px 19px;font-size:11px}
+body .carousel-arrows button{padding:8px 15px;min-height:36px;font-size:11px}
+body .carousel-toggle{min-height:32px;min-width:32px}
+body :is(.modal-close,.testimonial-dialog-close){width:34px;height:34px;display:grid;place-items:center;padding:0;line-height:1;font-size:22px}
+body header :is(.hub-link.action-button,.small-cta){min-height:38px;padding:8px 15px;font-size:11px}
+body .menu-toggle{width:34px;height:34px;padding:0;font-size:19px;line-height:1}
+body .testimonial-read-more.action-button{min-height:38px;font-size:10px;padding:8px 14px}
+@media(max-width:950px) and (min-width:781px){body header :is(.hub-link.action-button,.small-cta){font-size:10px;padding-inline:10px}}
+@media(max-width:650px){body .program-accordion-item h3 button{font-size:18px;padding:16px 18px}body :is(.currency button,.home-currency button){padding-inline:13px;font-size:10px}body .pricing-column>.action-button{padding-inline:12px;font-size:11px}}
+@media(max-width:520px){body header .small-cta{font-size:9px;padding:8px 11px;min-height:34px}body .language-switcher button{width:27px;min-width:27px;min-height:27px;height:27px;font-size:9px}body .language-switcher{gap:3px}body .header-actions{gap:7px}body .hero-actions .button{padding:10px 17px;font-size:11px}}
+body .carousel-arrows button{display:grid;place-items:center;width:42px;height:42px;min-width:42px;min-height:42px;padding:0;flex-shrink:0}
+.carousel-arrows button svg{width:21px;height:21px;display:block}

@@ -1,0 +1,39 @@
+.action-button{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:44px;padding:11px 19px;border:1px solid var(--accent-dark);border-radius:6px;background:transparent;color:var(--accent-dark);font-size:12px;font-weight:500;line-height:1.45;text-align:center;text-decoration:none;transition:background .2s,color .2s}
+.action-button:hover{background:var(--accent-dark);color:#fff}
+.action-button:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+.programs-page .program-jump-links{gap:12px;flex-wrap:wrap}
+.program-jump-links a.action-button{padding:11px 22px;font-weight:500;background:var(--soft);border-color:var(--accent-dark)}
+.program-jump-links a.action-button:hover{background:var(--accent-dark);color:white}
+.section-heading>.action-button{flex-shrink:0}
+.program-editorial-copy .action-button{margin-top:3px}
+.price-footnote .action-button{white-space:normal}
+.pricing-intro-copy>.action-button{margin-top:24px;background:var(--accent-dark);color:#fff}
+.weekly-plan-price .action-button{margin-top:20px;font-size:11px;padding-inline:13px}
+.package-row .action-button{justify-self:end}
+.modal .action-button{margin-top:8px}
+@media(max-width:650px){.section-heading>.action-button{margin-top:15px;max-width:100%;white-space:normal}.programs-page .program-jump-links{gap:10px}.program-jump-links a.action-button{padding:10px 15px}.package-row .action-button{grid-column:1/-1;justify-self:start}.weekly-plan-price .action-button{font-size:12px}.price-footnote{flex-wrap:wrap;gap:15px}}
+/* Consistent button treatment for navigation and secondary actions. */
+header nav{gap:8px}
+header .hub-link.action-button{padding:9px 14px;min-height:38px;font-size:11px;white-space:nowrap;color:var(--accent-dark)}
+.mobile-platform-button{display:none}
+.footer-links{flex-wrap:wrap;gap:9px}
+.footer-links .action-button{padding:8px 13px;min-height:40px;font-size:11px}
+.testimonial-read-more.action-button{margin-top:10px;min-height:38px;padding:8px 12px;border:1px solid var(--accent-dark);border-radius:6px;background:transparent;font-size:10px}
+.testimonial-read-more.action-button:hover{background:var(--accent-dark);color:#fff}
+@media(max-width:1100px){header{gap:15px}.header-actions{gap:10px}header nav a.nav-button{padding-inline:9px}}
+@media(max-width:780px){header nav.open{gap:10px}header nav a.nav-button{font-size:13px;min-height:44px;padding:11px 16px}header nav .mobile-platform-button{display:inline-flex;min-height:44px;font-size:13px}header .hub-link.action-button{display:none}.footer-links .action-button{min-height:44px}.footer-main{align-items:flex-start;gap:24px}}
+@media(max-width:520px){.footer-links{display:flex;gap:10px}.footer-links .action-button{flex:1 0 28%}}
+@media(min-width:781px){header .hub-link.action-button{display:inline-flex}}
+@media(min-width:781px) and (max-width:1100px){header .hub-link.action-button{padding-inline:9px;font-size:10px}.header-actions{gap:7px}}
+header nav{gap:25px}
+header nav a.nav-page-link{background:none;border:0;border-radius:0;color:var(--ink);font-size:12px;padding:10px 0;position:relative}
+header nav a.nav-page-link[aria-current=page]:after{content:'';position:absolute;bottom:0;left:0;width:100%;height:2px;background:var(--accent)}
+.footer-links{align-items:center;gap:20px}
+.footer-page-link{font-size:11px;padding:8px 0;position:relative}
+.footer-page-link[aria-current=page]:after{content:'';position:absolute;left:0;right:0;bottom:2px;height:2px;background:var(--accent)}
+.center-testimonial-carousel:has(.center-slide:only-child) .carousel-footer{display:none}
+.center-testimonial-carousel .center-slide:only-child{width:min(80%,650px);max-width:650px}
+@media(max-width:950px) and (min-width:781px){header nav{gap:15px}header nav a.nav-page-link{font-size:11px}}
+@media(max-width:780px){header nav a.nav-page-link{min-height:44px;align-self:flex-start;padding:10px 0;font-size:13px}header nav a.nav-page-link[aria-current=page]:after{bottom:3px}.footer-links{gap:12px 20px}.center-testimonial-carousel .center-slide:only-child{width:85%}}
+.carousel-arrows button,.testimonial-carousel .carousel-arrows button,.programs-showcase .carousel-arrows button{width:auto;min-width:68px;height:auto;min-height:36px;padding:8px 12px;border-radius:6px;font-size:11px;line-height:1.4}
+@media(max-width:520px){.carousel-footer{flex-wrap:wrap}.carousel-arrows button,.testimonial-carousel .carousel-arrows button,.programs-showcase .carousel-arrows button{min-width:62px;padding:7px 10px;font-size:10px}}

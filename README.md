@@ -1,10 +1,6 @@
-# Mr. O School
+﻿# Mr. O School
 
-Sitio multipágina con Next.js App Router, React, TypeScript y Tailwind CSS. Diseño adaptable con tres variantes anaranjadas, programas por secciones, precios COP/USD y contacto por WhatsApp.
-
-La página de Programas comienza con la dinámica de clase y continúa con secciones de inglés, español e IELTS/TOEFL, siempre visibles. Los enlaces internos llevan directamente a cada sección. El contenido bilingüe se encuentra en `app/programs-content.tsx`; `app/programs.css` también compacta los carruseles de Inicio.
-
-El selector ES/EN del navbar traduce todas las páginas y conserva la preferencia localmente. Las traducciones se editan en `app/translations.json`; `app/language.tsx` gestiona el contexto, el idioma del documento y el contacto. Los precios mantienen su selector de moneda independiente. El logo proporcionado se usa en navbar y footer. La burbuja de WhatsApp está disponible en todas las páginas.
+Sitio estático bilingüe con Next.js, React y TypeScript. Páginas: Inicio, Programas, Sobre Jaime, Precios y Plataforma.
 
 ## Desarrollo
 
@@ -12,21 +8,30 @@ El selector ES/EN del navbar traduce todas las páginas y conserva la preferenci
 
 `npm run dev`
 
-## Verificación y exportación
-
 `npm run typecheck`
 
 `npm run build`
 
-El sitio estático se genera en `out/`.
+La exportación estática se genera en `out/`. Los recursos actuales están en `public/images/` y `public/videos/`.
 
-## Material pendiente
+## Verificación
 
-- Incorporar el video de presentación. La imagen de Jaime proporcionada por el usuario está en `public/images/hero.png` y se utiliza en Inicio y Sobre Jaime.
-- Añadir futuros testimonios autorizados. Actualmente solo se muestra el de Samantha Fornaris, proporcionado por el usuario, completo en inglés y español, con acceso al original y opción de desplegarlo.
+Con el sitio disponible en `http://localhost:3000`:
 
-El carrusel de programas avanza cada 8 segundos y conserva el fondo claro. Se puede pausar y navegar manualmente; la reproducción se pausa al interactuar y cuando la pestaña está oculta. El carrusel de testimonios habilita la rotación cuando haya más de una opinión real. Se respeta la preferencia de movimiento reducido. Las imágenes de inglés y español fueron proporcionadas por el usuario.
-- Conectar el Student Learning Hub existente o desarrollar su autenticación y contenidos.
-- Confirmar tarifas y condiciones vigentes con Jaime antes de un lanzamiento público.
+`node scripts/verify.mjs`
 
-Las fotografías de los programas son ilustrativas. Los archivos están en `public/images`. La dirección visual de todas las páginas sigue la referencia proporcionada: Poppins local, botones redondeados, blanco cálido, anaranjado y secciones compactas.
+`node scripts/verify-autoplay.mjs`
+
+`node scripts/verify-resources.mjs`
+
+Los scripts comprueban las cinco páginas en español e inglés, seis anchos de pantalla, recursos multimedia, navegación automática, línea de tiempo y acordeones móviles. Usan Chrome o Edge en Windows; se puede indicar otro ejecutable con `PLAYWRIGHT_CHROMIUM_EXECUTABLE` y otra URL con `SITE_TEST_URL`.
+
+## Contenido actual
+
+- Inicio: programas con selección automática, video `jaime-1020.mp4`, acceso a Sobre Jaime y testimonios. Samantha es el testimonio real; Laura y Daniel son ejemplos identificados como simulados.
+- Programas: inglés, español e IELTS/TOEFL, con una línea de tiempo de las etapas de clase.
+- Sobre Jaime: fotografía `jaime-about.png`, perfiles profesionales y QR de TED. El QR se puede regenerar sin dependencias con `python scripts/generate-ted-qr.py`.
+- Precios: planes y paquetes en columnas en escritorio y acordeón en móvil. PayPal, Nequi y transferencia bancaria.
+- Plataforma: acceso privado pendiente de conexión; contacto por WhatsApp.
+
+Las traducciones generales están en `app/translations.json`; los componentes incluyen también textos bilingües propios. Todos los contactos usan `api.whatsapp.com`. Las tarifas, condiciones de paquetes y la conexión de la plataforma deben confirmarse antes del lanzamiento público.

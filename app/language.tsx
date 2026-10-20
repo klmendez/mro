@@ -21,7 +21,7 @@ export function LanguageProvider({children}:{children:React.ReactNode}){
   document.querySelector('meta[name="description"]')?.setAttribute('content',descriptions[locale]);
  },[locale]);
  const changeLocale=useCallback((next:Locale)=>{setLocale(next);try{localStorage.setItem('mro-language',next)}catch{}},[]);
- const value=useMemo(()=>({locale,setLocale:changeLocale,t:(text:string)=>translate(text,locale),whatsapp:'https://wa.me/573178948694?text='+encodeURIComponent(locale==='en'?"Hi Jaime, I'd like to learn more about lessons at Mr. O School.":'Hola Jaime, quiero conocer las clases de Mr. O School.')}),[locale,changeLocale]);
+ const value=useMemo(()=>({locale,setLocale:changeLocale,t:(text:string)=>translate(text,locale),whatsapp:'https://api.whatsapp.com/send?phone=573178948694&text='+encodeURIComponent(locale==='en'?"Hi Jaime, I'd like to learn more about lessons at Mr. O School.":'Hola Jaime, quiero conocer las clases de Mr. O School.')}),[locale,changeLocale]);
  return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>
 }
 export function useLanguage(){const value=useContext(LanguageContext);if(!value)throw new Error('LanguageProvider is required');return value}
