@@ -1,0 +1,21 @@
+:root{--navbar-height:76px}
+html{scroll-padding-top:calc(var(--navbar-height) + 16px)}
+body{padding-top:var(--navbar-height)}
+body>header{position:fixed;inset:0 0 auto;z-index:60;width:100%;max-width:none;height:var(--navbar-height);background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 3px 15px #241a1008}
+.language-section{scroll-margin-top:0}
+.testimonials-showcase{max-width:850px}
+.testimonial-editorial{grid-template-columns:145px minmax(0,1fr);gap:30px}
+.testimonial-words{max-width:62ch}
+.quote-language{justify-content:flex-start;gap:10px 22px;flex-wrap:wrap}
+.home-price-grid{gap:14px}
+.home-price-card{padding:24px 12px;min-height:172px;justify-content:center}
+.home-price-card h3{font-size:13px;margin-bottom:17px}
+.home-price-card strong{font-size:25px;font-weight:600;letter-spacing:-.055em;line-height:1.3;white-space:normal}
+.home-price-card:nth-child(3) strong{font-size:20px}
+.home-price-card>span,.home-price-card small{font-size:11px;margin-top:5px}
+.price-card strong{font-size:38px}
+.packages strong{font-size:31px;line-height:1.35}
+@media(max-width:1100px){.home-price-grid{grid-template-columns:repeat(6,minmax(0,1fr))}.home-price-card{grid-column:span 2;min-height:155px}.home-price-card:nth-child(n+4){grid-column:span 3}.home-price-card strong{font-size:27px}.home-price-card:nth-child(3) strong{font-size:22px}.price-card strong{font-size:31px}.packages strong{font-size:27px}}
+@media(max-width:780px){:root{--navbar-height:68px}.testimonials-showcase{max-width:750px}.home-price-card{padding:20px 12px}.home-price-card h3{font-size:12px}.home-price-card strong{font-size:25px}.home-price-card:nth-child(3) strong{font-size:21px}.home-price-card>span,.home-price-card small{font-size:10px}.price-card strong{font-size:25px}.packages strong{font-size:24px}}
+@media(max-width:600px){.home-price-card,.home-price-card:nth-child(n+4){grid-column:span 3}.home-price-card:nth-child(3){grid-column:span 6}.home-price-card:nth-child(3) strong{font-size:27px}.price-card strong{font-size:24px}}
+@media(max-width:520px){:root{--navbar-height:65px}.testimonial-editorial{grid-template-columns:1fr;gap:13px}.testimonial-words{max-width:55ch}.home-price-grid{gap:11px}.home-price-card{padding:21px 12px;min-height:155px}.home-price-card h3{font-size:12px;min-height:0;margin-bottom:13px}.home-price-card strong{font-size:24px}.home-price-card:nth-child(3){min-height:140px}.home-price-card:nth-child(3) strong{font-size:27px}.home-price-card>span,.home-price-card small{font-size:10px}.home-price-card:last-child{min-height:155px}.price-card strong{font-size:41px}.packages strong{font-size:27px}}
