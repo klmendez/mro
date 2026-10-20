@@ -42,6 +42,51 @@ try {
  assert.equal(await page.locator('img').evaluateAll(imgs=>imgs.filter(i=>!i.complete||i.naturalWidth===0).length),0);
  await page.getByRole('button',{name:'Conoce a Mr. O'}).click();
  await page.getByRole('dialog').waitFor();await page.keyboard.press('Escape');
- assert.equal(await page.getByRole('dialog').count(),0);assert.deepEqual(errors,[]);
- console.log('PASS: five routes, programs, currency, theme persistence, mobile menu, modal and mobile overflow.');
+ assert.equal(await page.getByRole('dialog').count(),0);
+ await page.getByRole('button',{name:'English',exact:true}).click();
+ await page.getByRole('heading',{level:1}).filter({hasText:'Learn'}).waitFor();
+ assert.equal(await page.locator('html').getAttribute('lang'),'en');
+ assert.equal(await page.getByRole('button',{name:'English',exact:true}).getAttribute('aria-pressed'),'true');
+ assert.match(await page.title(),/Find your voice/);
+ assert.match(await page.locator('meta[name="description"]').getAttribute('content'),/Personalized English/);
+ assert.match(await page.locator('.home-price-grid').innerText(),/lesson \/ week/);
+ assert.match(await page.locator('.home-price-grid').innerText(),/\/ lesson/);
+ const bubble=page.getByRole('link',{name:'Chat with Jaime on WhatsApp',exact:true});
+ assert.equal(await bubble.evaluate(e=>getComputedStyle(e).position),'fixed');
+ const contact=new URL(await bubble.getAttribute('href'));
+ assert.equal(contact.pathname,'/573178948694');assert.match(contact.searchParams.get('text'),/Hi Jaime/);
+ assert.equal(await page.locator('header .brand-logo').getAttribute('src'),'/images/logo.png');
+ assert.equal(await page.locator('footer .brand-logo').getAttribute('src'),'/images/logo.png');
+ await page.getByRole('button',{name:'Open menu'}).click();
+ await page.getByRole('navigation').getByRole('link',{name:'Programs',exact:true}).click();
+ await page.waitForURL('**/programas/');
+ await page.getByRole('heading',{level:1}).filter({hasText:'Your goal.'}).waitFor();
+ await page.getByRole('tab',{name:'Ñ Spanish'}).click();
+ await page.getByRole('heading',{name:'Spanish: Make real connections.'}).waitFor();
+ await page.getByRole('button',{name:'Español',exact:true}).click();
+ await page.getByRole('heading',{name:'Español: Conecta de verdad.'}).waitFor();
+ await page.getByRole('button',{name:'English',exact:true}).click();
+ await page.reload();
+ await page.getByRole('heading',{level:1}).filter({hasText:'Your goal.'}).waitFor();
+ const englishRoutes=[['/','Learn'],['/programas/','Your goal.'],['/sobre-jaime/','Teaching languages.'],['/precios/','Your learning.'],['/plataforma/','Your learning']];
+ for(const width of [320,390,768,1440]){
+  await page.setViewportSize({width,height:900});
+  for(const [route,heading] of englishRoutes){
+   await page.goto('http://127.0.0.1:3000'+route);
+   await page.getByRole('heading',{level:1}).filter({hasText:heading}).waitFor();
+   assert.equal(await page.locator('html').getAttribute('lang'),'en');
+   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth),'English overflow '+width+' '+route);
+   assert.equal(await page.locator('nav a[href="/"]').textContent(),'Home');
+   if(width===390||width===1440)await page.screenshot({path:'artifacts/'+(route.split('/')[1]||'inicio')+'-en-'+width+'.png',fullPage:true});
+   if(route==='/precios/'){
+    assert.match(await page.locator('.price-grid').innerText(),/WEEKLY PLAN/);
+    await page.locator('summary').filter({hasText:'Are lessons online?'}).click();
+    await page.getByText('Yes, you can take online lessons from anywhere in the world.',{exact:false}).waitFor();
+   }
+  }
+ }
+ await page.getByRole('button',{name:'Español',exact:true}).click();
+ await page.reload();await page.getByRole('heading',{level:1}).filter({hasText:'Tu aprendizaje'}).waitFor();
+ assert.deepEqual(errors,[]);
+ console.log('PASS: ES/EN across five routes and four viewport sizes; persistence, metadata, translated FAQ/programs/prices, logos, WhatsApp, currencies, themes, menu and modal.');
 }finally{await browser.close()}
