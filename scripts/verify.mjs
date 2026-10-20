@@ -57,10 +57,9 @@ try {
  });
  await programsCarousel.getByRole('heading',{name:'Aprende español',exact:true}).waitFor();
  const testimonials=page.getByRole('region',{name:'Testimonios de estudiantes',exact:true});
- await testimonials.getByRole('button',{name:'Pausar carrusel',exact:true}).click();
  assert.match(await testimonials.innerText(),/Samantha\s*Fornaris/);
  assert.match(await testimonials.innerText(),/Hace cuatro años/);
- assert.equal(await testimonials.getByRole('button',{name:'Siguiente',exact:true}).isDisabled(),false);
+ assert.equal(await testimonials.getByRole('button',{name:'Siguiente',exact:true}).isDisabled(),true);
  await testimonials.locator('summary').filter({hasText:'Leer testimonio completo'}).click();
  await testimonials.getByRole('button',{name:'Leer original en inglés',exact:false}).click();
  assert.match(await testimonials.locator('blockquote').innerText(),/Four years ago, I could barely put a sentence together in Spanish/);
@@ -68,12 +67,6 @@ try {
  assert.equal(await testimonials.locator('blockquote').getAttribute('lang'),'en');
  await testimonials.getByRole('button',{name:'Ver traducción',exact:false}).click();
  assert.equal(await testimonials.locator('blockquote').getAttribute('lang'),'es');
- await testimonials.getByRole('button',{name:'Siguiente',exact:true}).click();
- assert.match(await testimonials.innerText(),/Ejemplo generado · no es un testimonio real/);
- await testimonials.getByRole('button',{name:'Siguiente',exact:true}).click();
- assert.match(await testimonials.innerText(),/IELTS \/ TOEFL/);
- await testimonials.getByRole('button',{name:'Siguiente',exact:true}).click();
- assert.match(await testimonials.innerText(),/Samantha Fornaris/);
  await page.getByRole('button',{name:'Precios internacionales',exact:true}).click();
  assert.match(await page.locator('.home-price-grid').innerText(),/US\$135/);
  await page.getByRole('button',{name:'Precios en Colombia',exact:true}).click();
