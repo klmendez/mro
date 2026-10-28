@@ -61,3 +61,5 @@
 .testimonial-portrait img{position:absolute;display:block;max-width:none;object-fit:fill}
 .testimonial-dialog>.testimonial-portrait{width:88px;height:88px;margin-bottom:16px}
 @media(max-width:520px){.center-testimonial-carousel .center-stage{height:450px}}
+
+.testimonial-flag{display:inline-block;width:24px;height:16px;max-width:none;vertical-align:middle;object-fit:cover;margin-left:5px;border-radius:3px;box-shadow:0 0 0 1px #15151518}
