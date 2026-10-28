@@ -47,37 +47,75 @@ export function ProgramShowcase(){
  </div></section>
 }
 
-const samantha={
- en:[
-  'Four years ago, I could barely put a sentence together in Spanish. Now I’m reading books, watching shows, singing songs, and striking up conversations with strangers, all thanks to Jaime!',
-  'He has a way of making learning Spanish feel fun, interactive, and relevant to real life. Our classes are full of laughter, and he is so warm and encouraging that you never feel intimidated or afraid to make mistakes. At the same time, he always knows how to challenge me and push me outside of my comfort zone, which has helped me grow so much. He is authentic, genuinely passionate about teaching, and, over the years, has become a true friend. There’s a reason I’ve been coming back to his classes for four years. I absolutely love them and am so grateful for the confidence he’s given me in speaking Spanish!'
- ],
- es:[
-  'Hace cuatro años, apenas podía formar una frase en español. Ahora leo libros, veo series, canto canciones e inicio conversaciones con desconocidos, ¡todo gracias a Jaime!',
-  'Él tiene una manera de hacer que aprender español sea divertido, interactivo y relevante para la vida real. Nuestras clases están llenas de risas, y él es tan cálido y alentador que nunca te sientes intimidada ni tienes miedo de cometer errores. Al mismo tiempo, siempre sabe cómo retarme y animarme a salir de mi zona de confort, lo que me ha ayudado a crecer muchísimo. Es auténtico, le apasiona de verdad enseñar y, con los años, se ha convertido en un verdadero amigo. Por algo llevo cuatro años volviendo a sus clases. ¡Me encantan y estoy muy agradecida por la confianza que me ha dado para hablar español!'
- ]
+type Testimonial = {
+ id: string; name: string; initials: string; flag: string; country: {es: string; en: string};
+ role: {es: string; en: string}; student: {es: string; en: string}; lang: string; text: string[];
 };
 
-const testimonials=[
- {id:'samantha',name:'Samantha Fornaris',initials:'SF',simulated:false,role:{es:'Estudiante de español · EE. UU.',en:'Spanish student · USA'},text:samantha},
- {id:'laura',name:'Laura Méndez',initials:'LM',simulated:true,role:{es:'Estudiante de inglés',en:'English student'},text:{
-  es:['Antes ensayaba cada frase en mi cabeza. Ahora me animo a participar en conversaciones en inglés, aunque no tenga todas las palabras.','Las clases combinan conversaciones cotidianas con ejercicios que puedo aplicar durante la semana. Me gusta recibir correcciones claras y tener espacio para volver a intentarlo a mi ritmo.'],
-  en:['I used to rehearse every sentence in my head. Now I feel ready to join conversations in English, even when I don’t know every word.','Classes combine everyday conversations with exercises I can use during the week. I like getting clear feedback and having room to try again at my own pace.']
- }},
- {id:'daniel',name:'Daniel Brooks',initials:'DB',simulated:true,role:{es:'Estudiante de español',en:'Spanish student'},text:{
-  es:['Quería aprender español para conectar con las personas durante mis viajes. Practicar situaciones reales hace que cada clase tenga sentido para mí.','Trabajamos con temas que me interesan, desde pedir comida hasta contar una experiencia. Poco a poco me siento más cómodo escuchando, haciendo preguntas y manteniendo una conversación.'],
-  en:['I wanted to learn Spanish to connect with people while traveling. Practicing real situations makes every class feel meaningful to me.','We work on topics I care about, from ordering food to sharing an experience. Little by little, I feel more comfortable listening, asking questions, and keeping a conversation going.']
- }}
-
+const testimonials: Testimonial[] = [
+ {
+  id:'carlos', name:'Carlos Narváez', initials:'CN', flag:'🇨🇴', country:{es:'Colombia',en:'Colombia'},
+  role:{es:'Ingeniero Electrónico y Telecomunicaciones',en:'Electronics and Telecommunications Engineer'},
+  student:{es:'Estudiante de inglés desde 2024',en:'English student since 2024'}, lang:'en',
+  text:[`Mr. Ochoa's lessons are very dynamic from singing songs in english to watching interesting news stories from for example the BBC. While you improve your english, you also learn about ecology, animals, plants, music, politics, and curious news from around the world.`,
+  `His method makes you want to speak English every day, and it helps you improve your accent, vocabulary, listening, and writing. Thanks to his classes, I felt much more confident going into job interviews in English, and after practicing with Mr. Ochoa, I actually got a new job. I highly recommend him!`]
+ },
+ {
+  id:'samantha', name:'Samantha Fornaris', initials:'SF', flag:'🇺🇸', country:{es:'Estados Unidos',en:'United States'},
+  role:{es:'Nutricionista',en:'Nutritionist'}, student:{es:'Estudiante de español desde 2021',en:'Spanish student since 2021'}, lang:'es',
+  text:[`Hace cuatro años, apenas hablaba español en frases completas. Ahora leo libros, veo series (¡y telenovelas!), canto canciones, y hasta entablo conversaciones con desconocidos, ¡todo gracias a Jaime (también conocido como Mr. O)!`,
+  `Jaime tiene una manera especial de hacer que aprender español se sienta divertido, interactivo y útil para la vida real. Nuestras clases están llenas de risas y él es muy cálido y alentador. Nunca me hace sentir intimidada ni con miedo de cometer errores. Al mismo tiempo, él siempre sabe cómo desafiarme y empujarme fuera de mi zona de confort, lo que me ha ayudado a crecer. Él es auténtico, tiene una fuerte pasión por enseñar y con los años, se ha convertido en un gran amigo. ¡Hay una razón por la que he estado aprendiendo con Jaime por años!`,
+  `¡Me encantan sus clases completamente y estoy muy agradecida por la confianza que él me ha dado para hablar español!`]
+ },
+ {
+  id:'estefania', name:'Estefanía Ascencio', initials:'EA', flag:'🇪🇸', country:{es:'España',en:'Spain'},
+  role:{es:'Research Fellow in Computer Science/AI models',en:'Research Fellow in Computer Science/AI models'},
+  student:{es:'Estudiante de IELTS desde enero de 2026',en:'IELTS student since January 2026'}, lang:'en',
+  text:[`My experience with Mr. O has been truly rewarding. Throughout my IELTS preparation, I have noticed myself becoming more confident speaking English with every class. His varied teaching methods have helped me understand what I hear more easily, respond more spontaneously, and expand my vocabulary.`,
+  `I especially appreciate his dedication and his warm, personalised support. He has taken the time to identify my difficulties and help me overcome them step by step, including through extra exercises outside class. Alongside speaking, we have also worked on listening, writing, and reading, all of which have been essential to my preparation.`]
+ },
+ {
+  id:'gabriela', name:'Gabriela Catuche', initials:'GC', flag:'🇨🇴', country:{es:'Colombia',en:'Colombia'},
+  role:{es:'Ingeniera Electrónica',en:'Electronics Engineer'}, student:{es:'Estudiante de inglés desde febrero de 2026',en:'English student since February 2026'}, lang:'en',
+  text:[`I've been taking classes with Jaime for a few months, and I feel that my English has improved a lot.`,
+  `Before contacting Jaime, I paid for an academic English course, but I realized that I needed more than just traditional classes. At first, I felt nervous about speaking English, but as I continued taking classes with him, I became more confident and started to see improvements in my English level.`,
+  `I'm currently taking classes with Jaime because I'd like to study abroad. I know I need to improve my communication skills and develop other skills as well, and Jaime helps me work towards these goals.`,
+  `His teaching style focuses on practice and building self-confidence. His classes are fun and engaging, and I feel comfortable expressing my ideas without being afraid of making mistakes. He corrects me when necessary, and we use my mistakes as opportunities to practice and improve.`,
+  `I'm really happy with my progress, and I would recommend his classes to anyone who wants to improve their English and feel more confident speaking it.`]
+ },
+ {
+  id:'david', name:'Dávid Hajdu', initials:'DH', flag:'🇭🇺', country:{es:'Hungría',en:'Hungary'},
+  role:{es:'Ingeniero de Machine Learning · Budapest',en:'Machine Learning Engineer · Budapest'}, student:{es:'Estudiante de español',en:'Spanish student'}, lang:'en',
+  text:[`I strongly recommend Jaime as a Spanish instructor. He excels at structuring lessons around topics that personally interest me, making conversation practice effortless and engaging. His ability to balance core grammar with personalized content has greatly accelerated my language learning.`]
+ }
 ];
+
+// Original dimensions and square portrait framing: width, height, x, y, size.
+const portraitFrames: Record<string, [number, number, number, number, number]> = {
+ carlos:[311,354,0,0,311],
+ samantha:[470,705,35,80,390],
+ estefania:[434,491,18,15,302],
+ gabriela:[1072,634,70,40,540],
+ david:[555,735,155,200,245]
+};
+
+function TestimonialPortrait({person}: {person: Testimonial}){
+ const [width,height,x,y,size]=portraitFrames[person.id];
+ return <span className="testimonial-portrait"><img src={'/images/testimonials/'+person.id+'.jpeg'} alt={person.name} width={width} height={height} loading="lazy" style={{width:`${width/size*100}%`,height:`${height/size*100}%`,left:`${-x/size*100}%`,top:`${-y/size*100}%`}}/></span>;
+}
 
 export function TestimonialShowcase(){
  const {t,locale}=useLanguage();
  const [reading,setReading]=useState<number|null>(null);
+ const [playing,setPlaying]=useState(false);
  const selected=reading===null?null:testimonials[reading];
- return <section className="wrap reference-testimonials testimonials-showcase centered-testimonials" aria-labelledby="testimonials-heading">
-  <div className="section-heading"><div><div className="eyebrow">{t('TESTIMONIOS')}</div><h2 id="testimonials-heading">{locale==='es'?'Cada voz, un camino.':'Every voice, a journey.'}</h2></div></div>
-  <Carousel id="testimonials-carousel" label={locale==='es'?'Testimonios de estudiantes':'Student testimonials'} className="testimonial-carousel center-testimonial-carousel" centerMode simpleControls pauseAutoplay={reading!==null} slides={testimonials.map((person,i)=>({id:person.id,label:person.name,content:<figure className="center-testimonial"><span className="center-quote-symbol" aria-hidden="true">&ldquo;</span><blockquote lang={locale}><p>{person.text[locale][0]}</p></blockquote><figcaption><span className="center-initials" aria-hidden="true">{person.initials}</span><div><h3>{person.name}</h3><p>{person.role[locale]}</p>{person.simulated&&<small className="testimonial-simulation">{locale==='es'?'Testimonio simulado':'Simulated testimonial'}</small>}<button type="button" className="action-button testimonial-read-more" onClick={()=>setReading(i)}>{locale==='es'?'Ver testimonio completo':'View full testimonial'}</button></div></figcaption></figure>}))} />
-  {selected&&<dialog className="testimonial-dialog" ref={element=>{if(element&&!element.open)element.showModal()}} onCancel={()=>setReading(null)} onClick={event=>{if(event.target===event.currentTarget){const bounds=event.currentTarget.getBoundingClientRect();if(event.clientX<bounds.left||event.clientX>bounds.right||event.clientY<bounds.top||event.clientY>bounds.bottom)setReading(null)}}} aria-labelledby="full-testimonial-heading"><button type="button" autoFocus className="testimonial-dialog-close" aria-label={locale==='es'?'Cerrar':'Close'} onClick={()=>setReading(null)}>&times;</button><h3 id="full-testimonial-heading">{selected.name}</h3>{selected.simulated&&<p className="testimonial-example-note">{locale==='es'?'Testimonio simulado · Persona y experiencia de ejemplo.':'Simulated testimonial · Example person and experience.'}</p>}<blockquote lang={locale}>{selected.text[locale].map((paragraph,i)=><p key={i}>{paragraph}</p>)}</blockquote></dialog>}
+ return <section id="testimonios" className="wrap reference-testimonials testimonials-showcase centered-testimonials" aria-labelledby="testimonials-heading">
+  <div className="section-heading"><div><h2 id="testimonials-heading">{locale==='es'?'Testimonios':'Testimonials'}</h2><p className="testimonials-subtitle">{locale==='es'?'Cada voz, un camino.':'Every voice, a journey.'}</p></div></div>
+  <article className="featured-testimonial" aria-labelledby="featured-testimonial-heading">
+   <div className="featured-testimonial-copy"><div className="eyebrow">{locale==='es'?'MARIA ALEJANDRA OCHOA':'MARIA ALEJANDRA OCHOA'}</div><h3 id="featured-testimonial-heading">{locale==='es'?'El bilingüismo, en primera persona.':'Bilingualism, in her own words.'}</h3><p>{locale==='es'?'Una experiencia personal con el bilingüismo y el aprendizaje de idiomas. Escucha su historia.':'A personal experience with bilingualism and language learning. Hear her story.'}</p><a className="action-button" href="https://www.youtube.com/watch?v=MCzNhIQKHQo" target="_blank" rel="noopener noreferrer">{locale==='es'?'Ver en YouTube':'Watch on YouTube'} ↗</a></div>
+   <div className="featured-testimonial-video">{playing?<iframe src="https://www.youtube-nocookie.com/embed/MCzNhIQKHQo?autoplay=1&rel=0" title={locale==='es'?'Maria Alejandra Ochoa comparte su experiencia con el bilingüismo':"Maria Alejandra Ochoa shares her experience with bilingualism"} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen/>:<button type="button" className="featured-video-play" onClick={()=>setPlaying(true)} aria-label={locale==='es'?'Reproducir testimonio en video':'Play video testimonial'}><img src="https://i.ytimg.com/vi/MCzNhIQKHQo/hqdefault.jpg" alt="" loading="lazy"/><span className="featured-video-play-icon" aria-hidden="true">▶</span><span className="featured-video-label">{locale==='es'?'Escucha su historia':'Hear her story'}</span></button>}</div>
+  </article>
+  <Carousel id="testimonials-carousel" label={locale==='es'?'Testimonios de estudiantes':'Student testimonials'} className="testimonial-carousel center-testimonial-carousel" centerMode simpleControls pauseAutoplay={reading!==null||playing} slides={testimonials.map((person,i)=>({id:person.id,label:person.name,content:<figure className="center-testimonial"><span className="center-quote-symbol" aria-hidden="true">&ldquo;</span><blockquote lang={person.lang}><p>{person.text[0]}</p></blockquote><figcaption><TestimonialPortrait person={person}/><div><h3>{person.name} <span role="img" aria-label={person.country[locale]}>{person.flag}</span></h3><p>{person.role[locale]}</p><p>{person.student[locale]}</p><button type="button" className="action-button testimonial-read-more" onClick={()=>setReading(i)}>{locale==='es'?'Leer testimonio':'Read testimonial'}</button></div></figcaption></figure>}))} />
+  {selected&&<dialog className="testimonial-dialog" ref={element=>{if(element&&!element.open)element.showModal()}} onCancel={()=>setReading(null)} onClick={event=>{if(event.target===event.currentTarget){const bounds=event.currentTarget.getBoundingClientRect();if(event.clientX<bounds.left||event.clientX>bounds.right||event.clientY<bounds.top||event.clientY>bounds.bottom)setReading(null)}}} aria-labelledby="full-testimonial-heading"><button type="button" autoFocus className="testimonial-dialog-close" aria-label={locale==='es'?'Cerrar':'Close'} onClick={()=>setReading(null)}>&times;</button><TestimonialPortrait person={selected}/><h3 id="full-testimonial-heading">{selected.name} <span role="img" aria-label={selected.country[locale]}>{selected.flag}</span></h3><p className="testimonial-profile">{selected.role[locale]}<br/>{selected.student[locale]}</p><blockquote lang={selected.lang}>{selected.text.map((paragraph,i)=><p key={i}>{paragraph}</p>)}</blockquote></dialog>}
  </section>
 }

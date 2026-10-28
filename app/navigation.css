@@ -4,3 +4,43 @@
 @media(max-width:780px){.brand-logo{width:155px;height:52px}.header-actions{gap:12px}.language-switcher button{font-size:10px;min-width:27px;padding-inline:4px}.footer-main .brand-logo{width:170px;height:57px}}
 @media(max-width:520px){header{gap:10px}.brand-logo{width:125px;height:43px}.header-actions{gap:8px}.language-switcher{gap:0}.language-switcher button{min-width:25px;padding-inline:4px}.small-cta{padding:10px 12px;font-size:9px;white-space:nowrap}.whatsapp-bubble{width:54px;height:54px;right:17px;bottom:18px;bottom:max(18px,env(safe-area-inset-bottom))}.whatsapp-bubble svg{width:29px;height:29px}.footer-bottom{padding-right:65px}.footer-main .brand-logo{width:165px;height:55px}}
 @media(max-width:380px){header .small-cta{display:none}.brand-logo{width:142px;height:48px}.header-actions{gap:10px}}
+
+/* Personal WhatsApp contact pill, compact on phones. */
+.whatsapp-bubble{width:auto;height:auto;min-height:68px;display:flex;gap:12px;padding:9px 17px 9px 9px;border:1px solid #fff;border-radius:40px;background:#fffdf8;color:var(--ink);box-shadow:0 8px 32px #173f2526,0 2px 6px #173f2510;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
+.whatsapp-bubble-icon{width:48px;height:48px;flex-shrink:0;display:grid;place-items:center;border-radius:50%;color:#fff;background:linear-gradient(145deg,#29cb71,#128c4c);box-shadow:inset 0 1px 1px #ffffff66,0 3px 8px #128c4c26}
+.whatsapp-bubble-icon svg{width:27px;height:27px}
+.whatsapp-bubble-copy{display:flex;flex-direction:column;gap:3px;text-align:left}
+.whatsapp-bubble-copy strong{font-size:14px;line-height:1.2;font-weight:600}
+.whatsapp-bubble-copy>span{font-size:10px;line-height:1.4;color:var(--muted)}
+.whatsapp-bubble-arrow{font-size:19px;color:#128c4c;margin-left:3px}
+.whatsapp-bubble:hover{background:#fff;transform:translateY(-3px);box-shadow:0 12px 35px #173f2533,0 2px 8px #173f2514}
+.whatsapp-bubble:active{transform:translateY(0) scale(.97)}
+.whatsapp-bubble:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+@media(max-width:520px){
+ .whatsapp-bubble{width:58px;height:58px;min-height:58px;padding:4px;gap:0;right:16px;bottom:max(16px,env(safe-area-inset-bottom));justify-content:center}
+ .whatsapp-bubble-icon{width:48px;height:48px}
+ .whatsapp-bubble-copy,.whatsapp-bubble-arrow{display:none}
+}
+@media(prefers-reduced-motion:reduce){.whatsapp-bubble{transition:none}.whatsapp-bubble:hover,.whatsapp-bubble:active{transform:none}}
+
+@media(max-width:520px){
+ .whatsapp-bubble{width:auto;max-width:calc(100vw - 32px);gap:9px;padding:4px 14px 4px 4px}
+ .whatsapp-bubble-copy{display:flex}
+ .whatsapp-bubble-copy strong{font-size:11px}
+ .whatsapp-bubble-copy>span{font-size:9px}
+}
+
+/* A separate notification above the round WhatsApp launcher. */
+.whatsapp-bubble{width:62px;height:62px;min-height:62px;padding:5px;gap:0;justify-content:center;border-radius:50%;overflow:visible}
+.whatsapp-bubble-icon{width:50px;height:50px}
+.whatsapp-bubble-copy{position:absolute;right:0;bottom:calc(100% + 14px);display:flex;width:max-content;max-width:calc(100vw - 50px);gap:4px;padding:13px 17px;background:#fffdf8;border:1px solid #ece6de;border-radius:15px 15px 4px 15px;box-shadow:0 5px 22px #173f251a;color:var(--ink);white-space:nowrap}
+.whatsapp-bubble-copy::after{content:'';position:absolute;bottom:-6px;right:22px;width:10px;height:10px;transform:rotate(45deg);background:#fffdf8;border-right:1px solid #ece6de;border-bottom:1px solid #ece6de}
+.whatsapp-bubble-copy strong{font-size:13px;line-height:1.3}
+.whatsapp-bubble-copy>span{font-size:10px;line-height:1.4}
+@media(max-width:520px){
+ .whatsapp-bubble{width:58px;height:58px;min-height:58px;padding:4px;gap:0}
+ .whatsapp-bubble-icon{width:48px;height:48px}
+ .whatsapp-bubble-copy{padding:11px 14px;bottom:calc(100% + 12px)}
+ .whatsapp-bubble-copy strong{font-size:12px}
+ .whatsapp-bubble-copy>span{font-size:9px}
+}
