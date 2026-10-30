@@ -182,3 +182,9 @@
  .reference-prices .section-heading{margin-bottom:16px;gap:12px}
  .home-section-subtitle{font-size:12px;margin-top:6px}
 }
+
+.home-currency.currency-options,.pricing-page .currency.currency-options{display:flex;flex-wrap:wrap;justify-content:center;gap:5px;max-width:100%}
+.home-currency.currency-options button,.pricing-page .currency.currency-options button{flex:0 1 auto;min-width:72px;padding:10px 14px;white-space:nowrap}
+.currency-conversion-note{max-width:720px;margin:16px auto;font-size:11px;line-height:1.7;text-align:center;color:var(--muted)}
+.currency-conversion-note a{color:var(--accent-dark);text-decoration:underline}
+@media(max-width:650px){.home-currency.currency-options button,.pricing-page .currency.currency-options button{min-width:60px;padding:9px 11px;font-size:11px}.currency-conversion-note{font-size:10px;margin-block:12px}}
